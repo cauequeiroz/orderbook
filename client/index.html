@@ -41,6 +41,9 @@
         #app {
             margin: 20px 0;
         }
+        .controls__buttons {
+            padding-top: 26px;
+        }
     </style>
 </head>
 <body>
@@ -54,23 +57,36 @@
         
         <form id="app__controls">
             <div class="container">
+                <div class="alert alert-light text-center" role="alert"></div>
+                
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <div class="controls__input">
                             <label>Date</label>
-                            <input type="date" class="form-control" required autofocus>
+                            <input type="date" class="form-control" id="order-date" required autofocus>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="controls__input">
                             <label>Quantity</label>
-                            <input type="number" class="form-control" min="1" step="1" value="1" required>
+                            <input type="number" class="form-control" id="order-quantity" min="1" step="1" value="1" required>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="controls__input">
                             <label>Price</label>
-                            <input type="number" class="form-control" min="0.01" step="0.01" value="0.0" required>
+                            <input type="number" class="form-control" id="order-price" min="0.01" step="0.01" value="0.0" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <div class="controls__buttons">
+                            <button type="submit" class="btn btn-primary">register order</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="controls__buttons float-right">
+                            <a class="btn btn-outline-primary" href="#" role="button" id="control-import">import orders</a>
+                            <a class="btn btn-outline-primary" href="#" role="button" id="control-delete">delete all</a>
                         </div>
                     </div>
                 </div>
