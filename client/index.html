@@ -41,9 +41,13 @@
         #app {
             margin: 20px 0;
         }
+        #app__table {
+            margin-top: 40px;
+        }
         .controls__buttons {
             padding-top: 26px;
         }
+
     </style>
 </head>
 <body>
@@ -58,7 +62,7 @@
         <form id="app__controls">
             <div class="container">
                 <div class="alert alert-light text-center" role="alert"></div>
-                
+
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="controls__input">
@@ -92,6 +96,94 @@
                 </div>
             </div>
         </form>
+
+        <div id="app__table">
+            <div class="container">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Volume</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            
+                                <tr>
+                                    <td>10/9/2017</td>
+                                    <td>1</td>
+                                    <td>150</td>
+                                    <td>150</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>10/9/2017</td>
+                                    <td>2</td>
+                                    <td>250</td>
+                                    <td>500</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>10/9/2017</td>
+                                    <td>3</td>
+                                    <td>350</td>
+                                    <td>1050</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>3/9/2017</td>
+                                    <td>1</td>
+                                    <td>450</td>
+                                    <td>450</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>3/9/2017</td>
+                                    <td>2</td>
+                                    <td>550</td>
+                                    <td>1100</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>3/9/2017</td>
+                                    <td>3</td>
+                                    <td>650</td>
+                                    <td>1950</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>27/8/2017</td>
+                                    <td>1</td>
+                                    <td>750</td>
+                                    <td>750</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>27/8/2017</td>
+                                    <td>2</td>
+                                    <td>950</td>
+                                    <td>1900</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>27/8/2017</td>
+                                    <td>3</td>
+                                    <td>950</td>
+                                    <td>2850</td>
+                                </tr>
+                            
+                        </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3"></td>
+                            <td>0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        
     </div>
 
 </body>
