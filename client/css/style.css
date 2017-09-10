@@ -1,0 +1,53 @@
+/*  General
+-------------------------------------------------------- */
+
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font: 16px 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #333;
+}
+
+/*  Header
+-------------------------------------------------------- */
+
+header {
+    width: 100%;
+    text-align: center;
+    text-transform: lowercase;
+    padding: 20px;
+    color: #ecf0f1;
+    border-bottom: 5px solid #ecf0f1;
+    box-shadow: inset 0px -5px 20px 0px rgba(0, 0, 0, 0.3);
+    background: #e74c3c url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQYV2PUO1P4/5JJPyMDFMAZGAIwlRgqAFhNCAXLv59gAAAAAElFTkSuQmCC) repeat;
+}
+header h1 {
+    font: 52px 'Patua One', sans-serif;
+    margin-bottom: 10px;
+}
+header p {
+    font-size: 22px;
+}
+
+/*  App: General
+-------------------------------------------------------- */
+
+#app {
+    margin: 20px 0;
+}
+
+#app .alert {
+    margin-bottom: 0;
+    padding: 20px;
+}
+
+/*  App: Controls
+-------------------------------------------------------- */
+
+.controls__buttons {
+    padding-top: 26px;
+}

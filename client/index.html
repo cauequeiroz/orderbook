@@ -8,47 +8,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Patua+One|Roboto:300">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">    
-    <style>
-        *, *:after, *:before {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font: 16px 'Roboto', sans-serif;
-            font-weight: 300;
-            color: #333;
-        }
-
-        header {
-            width: 100%;
-            text-align: center;
-            text-transform: lowercase;
-            padding: 20px;
-            color: #ecf0f1;
-            border-bottom: 5px solid #ecf0f1;
-            box-shadow: inset 0px -5px 20px 0px rgba(0, 0, 0, 0.3);
-            background: #e74c3c url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQYV2PUO1P4/5JJPyMDFMAZGAIwlRgqAFhNCAXLv59gAAAAAElFTkSuQmCC) repeat;
-        }
-        header h1 {
-            font: 52px 'Patua One', sans-serif;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 22px;
-        }
-
-        #app {
-            margin: 20px 0;
-        }
-        #app__table {
-            margin-top: 40px;
-        }
-        .controls__buttons {
-            padding-top: 26px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
@@ -61,8 +21,6 @@
         
         <form id="app__controls">
             <div class="container">
-                <div class="alert alert-light text-center" role="alert"></div>
-
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="controls__input">
@@ -97,6 +55,8 @@
             </div>
         </form>
 
+        <div class="alert alert-light text-center" role="alert">...</div>
+
         <div id="app__table">
             <div class="container">
                 <table class="table table-bordered table-striped">
@@ -108,48 +68,46 @@
                             <th>Volume</th>
                         </tr>
                     </thead>
-                    <tbody>
-                            
-                                <tr>
-                                    <td>10/9/2017</td>
-                                    <td>1</td>
-                                    <td>150</td>
-                                    <td>150</td>
-                                </tr>
-                            
-                                <tr>
-                                    <td>10/9/2017</td>
-                                    <td>2</td>
-                                    <td>250</td>
-                                    <td>500</td>
-                                </tr>
-                            
-                                <tr>
-                                    <td>10/9/2017</td>
-                                    <td>3</td>
-                                    <td>350</td>
-                                    <td>1050</td>
-                                </tr>
-                            
-                                <tr>
-                                    <td>3/9/2017</td>
-                                    <td>1</td>
-                                    <td>450</td>
-                                    <td>450</td>
-                                </tr>
-                            
-                                <tr>
-                                    <td>3/9/2017</td>
-                                    <td>2</td>
-                                    <td>550</td>
-                                    <td>1100</td>
-                                </tr>
-                            
-                        </tbody>
+                    <tbody>                            
+                        <tr>
+                            <td>10/9/2017</td>
+                            <td>1</td>
+                            <td>150</td>
+                            <td>150</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>10/9/2017</td>
+                            <td>2</td>
+                            <td>250</td>
+                            <td>500</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>10/9/2017</td>
+                            <td>3</td>
+                            <td>350</td>
+                            <td>1050</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>3/9/2017</td>
+                            <td>1</td>
+                            <td>450</td>
+                            <td>450</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>3/9/2017</td>
+                            <td>2</td>
+                            <td>550</td>
+                            <td>1100</td>
+                        </tr>                            
+                    </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="3"></td>
-                            <td>0</td>
+                            <td>3250</td>
                         </tr>
                     </tfoot>
                 </table>
