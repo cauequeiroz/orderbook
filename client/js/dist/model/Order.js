@@ -39,6 +39,7 @@ System.register([], function (_export, _context) {
                     this._date = new Date(date.getTime());
                     this._amount = amount;
                     this._price = price;
+                    Object.freeze(this);
                 }
 
                 _createClass(Order, [{

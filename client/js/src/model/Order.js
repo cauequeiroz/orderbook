@@ -5,6 +5,7 @@ export class Order {
         this._date = new Date(date.getTime());
         this._amount = amount;
         this._price = price;
+        Object.freeze(this);
     }
 
     get date() {
