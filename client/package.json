@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel js/src -d js/dist --save-maps",
-    "watch": "babel js/src -d js/dist --save-maps --watch"
+    "build": "babel js/src -d js/dist --source-maps",
+    "watch": "babel js/src -d js/dist --source-maps --watch"
   },
   "repository": {
     "type": "git",

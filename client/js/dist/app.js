@@ -1,15 +1,20 @@
 'use strict';
 
-System.register(['./model/Order', './model/OrderList'], function (_export, _context) {
+System.register(['./controller/OrderController'], function (_export, _context) {
   "use strict";
 
-  var Order, OrderList;
+  var OrderController, orderController, $;
   return {
-    setters: [function (_modelOrder) {
-      Order = _modelOrder.Order;
-    }, function (_modelOrderList) {
-      OrderList = _modelOrderList.OrderList;
+    setters: [function (_controllerOrderController) {
+      OrderController = _controllerOrderController.OrderController;
     }],
-    execute: function () {}
+    execute: function () {
+      orderController = new OrderController();
+      $ = document.querySelector.bind(document);
+
+
+      $('#app__controls').onsubmit = orderController.add.bind(orderController);
+    }
   };
 });
+//# sourceMappingURL=app.js.map

@@ -1,9 +1,21 @@
-"use strict";
+'use strict';
 
 System.register([], function (_export, _context) {
     "use strict";
 
-    var _createClass, OrderList;
+    var _createClass, DateHelper;
+
+    function _toConsumableArray(arr) {
+        if (Array.isArray(arr)) {
+            for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+                arr2[i] = arr[i];
+            }
+
+            return arr2;
+        } else {
+            return Array.from(arr);
+        }
+    }
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -32,40 +44,28 @@ System.register([], function (_export, _context) {
                 };
             }();
 
-            _export("OrderList", OrderList = function () {
-                function OrderList() {
-                    _classCallCheck(this, OrderList);
+            _export('DateHelper', DateHelper = function () {
+                function DateHelper() {
+                    _classCallCheck(this, DateHelper);
 
-                    this._list = [];
+                    throw new Error('This class cannot be instantiated.');
                 }
 
-                _createClass(OrderList, [{
-                    key: "add",
-                    value: function add(order) {
+                _createClass(DateHelper, null, [{
+                    key: 'dateFromText',
+                    value: function dateFromText(text) {
 
-                        this._list.push(order);
-                    }
-                }, {
-                    key: "list",
-                    get: function get() {
-
-                        return [].concat(this._list);
-                    }
-                }, {
-                    key: "total",
-                    get: function get() {
-
-                        return this._list.reduce(function (acc, value) {
-                            return acc += value.total;
-                        }, 0);
+                        return new (Function.prototype.bind.apply(Date, [null].concat(_toConsumableArray(text.split('-').map(function (number, pos) {
+                            return pos == 1 ? number++ : number;
+                        })))))();
                     }
                 }]);
 
-                return OrderList;
+                return DateHelper;
             }());
 
-            _export("OrderList", OrderList);
+            _export('DateHelper', DateHelper);
         }
     };
 });
-//# sourceMappingURL=OrderList.js.map
+//# sourceMappingURL=DateHelper.js.map
