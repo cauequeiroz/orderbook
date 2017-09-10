@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 System.register([], function (_export, _context) {
     "use strict";
 
-    var _createClass, TestModule;
+    var _createClass, Order;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -32,25 +32,45 @@ System.register([], function (_export, _context) {
                 };
             }();
 
-            _export('TestModule', TestModule = function () {
-                function TestModule() {
-                    _classCallCheck(this, TestModule);
+            _export("Order", Order = function () {
+                function Order(date, amount, price) {
+                    _classCallCheck(this, Order);
 
-                    this.message = 'Start development...';
+                    this._date = new Date(date.getTime());
+                    this._amount = amount;
+                    this._price = price;
                 }
 
-                _createClass(TestModule, [{
-                    key: 'hi',
-                    value: function hi() {
+                _createClass(Order, [{
+                    key: "date",
+                    get: function get() {
 
-                        console.log('[DEV] ' + this.message);
+                        return new Date(this._date.getTime());
+                    }
+                }, {
+                    key: "amount",
+                    get: function get() {
+
+                        return this._amount;
+                    }
+                }, {
+                    key: "price",
+                    get: function get() {
+
+                        return this._price;
+                    }
+                }, {
+                    key: "total",
+                    get: function get() {
+
+                        return this._amount * this._price;
                     }
                 }]);
 
-                return TestModule;
+                return Order;
             }());
 
-            _export('TestModule', TestModule);
+            _export("Order", Order);
         }
     };
 });

@@ -1,16 +1,15 @@
 'use strict';
 
-System.register(['./TestModule'], function (_export, _context) {
+System.register(['./model/Order'], function (_export, _context) {
   "use strict";
 
-  var TestModule;
+  var Order, order;
   return {
-    setters: [function (_TestModule) {
-      TestModule = _TestModule.TestModule;
+    setters: [function (_modelOrder) {
+      Order = _modelOrder.Order;
     }],
     execute: function () {
-
-      new TestModule().hi();
+      order = new Order(new Date(), 2, 25);
     }
   };
 });

@@ -1,3 +1,3 @@
-import {TestModule} from './TestModule';
+import {Order} from './model/Order';
 
-new TestModule().hi();
+let order = new Order(new Date(), 2, 25);
