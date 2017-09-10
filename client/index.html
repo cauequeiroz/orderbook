@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Order Book</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Patua+One|Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Patua+One|Roboto:300">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">    
     <style>
         *, *:after, *:before {
             margin: 0;
@@ -21,12 +22,13 @@
 
         header {
             width: 100%;
-            border-bottom: 5px solid #ecf0f1;
             text-align: center;
-            background: #e74c3c url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQYV2PUO1P4/5JJPyMDFMAZGAIwlRgqAFhNCAXLv59gAAAAAElFTkSuQmCC) repeat;
-            padding: 40px;
-            box-shadow: inset 0px -5px 20px 0px rgba(0, 0, 0, 0.3);
+            text-transform: lowercase;
+            padding: 20px;
             color: #ecf0f1;
+            border-bottom: 5px solid #ecf0f1;
+            box-shadow: inset 0px -5px 20px 0px rgba(0, 0, 0, 0.3);
+            background: #e74c3c url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQYV2PUO1P4/5JJPyMDFMAZGAIwlRgqAFhNCAXLv59gAAAAAElFTkSuQmCC) repeat;
         }
         header h1 {
             font: 52px 'Patua One', sans-serif;
@@ -34,6 +36,10 @@
         }
         header p {
             font-size: 22px;
+        }
+
+        #app {
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -43,6 +49,34 @@
         <h1>order book</h1>
         <p>An order book application built with Javascript (ES6)</p>
     </header>
+
+    <div id="app">
+        
+        <form id="app__controls">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="controls__input">
+                            <label>Date</label>
+                            <input type="date" class="form-control" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="controls__input">
+                            <label>Quantity</label>
+                            <input type="number" class="form-control" min="1" step="1" value="1" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="controls__input">
+                            <label>Price</label>
+                            <input type="number" class="form-control" min="0.01" step="0.01" value="0.0" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 
 </body>
 </html>
