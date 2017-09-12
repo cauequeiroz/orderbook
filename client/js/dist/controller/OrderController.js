@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['../model/Order', '../model/OrderList', '../helper/DateHelper'], function (_export, _context) {
+System.register(['../model/Order', '../model/OrderList', '../view/OrderListView.js', '../model/Message', '../view/MessageView', '../helper/DateHelper'], function (_export, _context) {
     "use strict";
 
-    var Order, OrderList, DateHelper, _createClass, OrderController;
+    var Order, OrderList, OrderListView, Message, MessageView, DateHelper, _createClass, OrderController;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -16,6 +16,12 @@ System.register(['../model/Order', '../model/OrderList', '../helper/DateHelper']
             Order = _modelOrder.Order;
         }, function (_modelOrderList) {
             OrderList = _modelOrderList.OrderList;
+        }, function (_viewOrderListViewJs) {
+            OrderListView = _viewOrderListViewJs.OrderListView;
+        }, function (_modelMessage) {
+            Message = _modelMessage.Message;
+        }, function (_viewMessageView) {
+            MessageView = _viewMessageView.MessageView;
         }, function (_helperDateHelper) {
             DateHelper = _helperDateHelper.DateHelper;
         }],
@@ -49,6 +55,12 @@ System.register(['../model/Order', '../model/OrderList', '../helper/DateHelper']
                     this._controlsPrice = $('#order-price');
 
                     this._orderList = new OrderList();
+                    this._orderListView = new OrderListView($('#orderListView'));
+                    this._orderListView.update(this._orderList);
+
+                    this._message = new Message();
+                    this._messageView = new MessageView($('#messageView'));
+                    this._messageView.update(this._message);
                 }
 
                 _createClass(OrderController, [{
@@ -59,6 +71,9 @@ System.register(['../model/Order', '../model/OrderList', '../helper/DateHelper']
                         var order = this._createOrder();
 
                         this._orderList.add(order);
+                        this._orderListView.update(this._orderList);
+                        this._message.text = 'Order added.';
+                        this._messageView.update(this._message);
                         this._clearForm();
                     }
                 }, {

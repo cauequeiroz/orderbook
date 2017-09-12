@@ -3,19 +3,7 @@
 System.register([], function (_export, _context) {
     "use strict";
 
-    var _createClass, DateHelper;
-
-    function _toConsumableArray(arr) {
-        if (Array.isArray(arr)) {
-            for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-                arr2[i] = arr[i];
-            }
-
-            return arr2;
-        } else {
-            return Array.from(arr);
-        }
-    }
+    var _createClass, MessageView;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -44,34 +32,40 @@ System.register([], function (_export, _context) {
                 };
             }();
 
-            _export('DateHelper', DateHelper = function () {
-                function DateHelper() {
-                    _classCallCheck(this, DateHelper);
+            _export('MessageView', MessageView = function () {
+                function MessageView(element) {
+                    _classCallCheck(this, MessageView);
 
-                    throw new Error('This class cannot be instantiated.');
+                    this._element = element;
+                    this._timer = null;
                 }
 
-                _createClass(DateHelper, null, [{
-                    key: 'dateFromText',
-                    value: function dateFromText(text) {
+                _createClass(MessageView, [{
+                    key: 'update',
+                    value: function update(model) {
+                        var _this = this;
 
-                        return new (Function.prototype.bind.apply(Date, [null].concat(_toConsumableArray(text.split('-').map(function (number, pos) {
-                            return pos == 1 ? number++ : number;
-                        })))))();
+                        this._element.innerHTML = this._template(model);
+
+                        if (this._timer) clearTimeout(this._timer);
+
+                        this._timer = setTimeout(function () {
+                            return _this._element.innerHTML = _this._template({ text: '' });
+                        }, 3000);
                     }
                 }, {
-                    key: 'textFromDate',
-                    value: function textFromDate(date) {
+                    key: '_template',
+                    value: function _template(model) {
 
-                        return date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+                        return '\n            <div class="alert alert-light text-center" role="alert">\n                ' + (model.text ? model.text : '...') + '\n            </div>\n        ';
                     }
                 }]);
 
-                return DateHelper;
+                return MessageView;
             }());
 
-            _export('DateHelper', DateHelper);
+            _export('MessageView', MessageView);
         }
     };
 });
-//# sourceMappingURL=DateHelper.js.map
+//# sourceMappingURL=MessageView.js.map

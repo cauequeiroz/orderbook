@@ -3,19 +3,7 @@
 System.register([], function (_export, _context) {
     "use strict";
 
-    var _createClass, DateHelper;
-
-    function _toConsumableArray(arr) {
-        if (Array.isArray(arr)) {
-            for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-                arr2[i] = arr[i];
-            }
-
-            return arr2;
-        } else {
-            return Array.from(arr);
-        }
-    }
+    var _createClass, Message;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -44,34 +32,32 @@ System.register([], function (_export, _context) {
                 };
             }();
 
-            _export('DateHelper', DateHelper = function () {
-                function DateHelper() {
-                    _classCallCheck(this, DateHelper);
+            _export('Message', Message = function () {
+                function Message() {
+                    var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
-                    throw new Error('This class cannot be instantiated.');
+                    _classCallCheck(this, Message);
+
+                    this._text = text;
                 }
 
-                _createClass(DateHelper, null, [{
-                    key: 'dateFromText',
-                    value: function dateFromText(text) {
+                _createClass(Message, [{
+                    key: 'text',
+                    get: function get() {
 
-                        return new (Function.prototype.bind.apply(Date, [null].concat(_toConsumableArray(text.split('-').map(function (number, pos) {
-                            return pos == 1 ? number++ : number;
-                        })))))();
-                    }
-                }, {
-                    key: 'textFromDate',
-                    value: function textFromDate(date) {
+                        return this._text;
+                    },
+                    set: function set(text) {
 
-                        return date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+                        this._text = text;
                     }
                 }]);
 
-                return DateHelper;
+                return Message;
             }());
 
-            _export('DateHelper', DateHelper);
+            _export('Message', Message);
         }
     };
 });
-//# sourceMappingURL=DateHelper.js.map
+//# sourceMappingURL=Message.js.map

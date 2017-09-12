@@ -11,4 +11,9 @@ export class DateHelper {
             ...text.split('-').map((number, pos) => pos == 1 ? number++ : number)
         );
     }
+
+    static textFromDate(date) {
+
+        return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+    }
 }
