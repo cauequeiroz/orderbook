@@ -4,7 +4,7 @@
   "description": "An order book application built with Javascript (ES6)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && node server/server.js",
     "build": "babel js/src -d js/dist --source-maps",
     "watch": "babel js/src -d js/dist --source-maps --watch"
   },
@@ -18,12 +18,12 @@
     "url": "https://github.com/cauequeiroz/orderbook/issues"
   },
   "homepage": "https://github.com/cauequeiroz/orderbook#readme",
-  "devDependencies": {
+  "dependencies": {
+    "systemjs": "^0.19.31",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.9.0",
-    "babel-preset-es2015": "^6.24.1"
-  },
-  "dependencies": {
-    "systemjs": "^0.19.31"
+    "babel-preset-es2015": "^6.24.1",
+    "body-parser": "^1.15.1",
+    "express": "^4.12.3"
   }
 }
