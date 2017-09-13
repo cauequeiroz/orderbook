@@ -1,18 +1,9 @@
+import {View} from './View';
 import {DateHelper} from '../helper/DateHelper';
 
-export class OrderListView {
+export class OrderListView extends View {
 
-    constructor(element) {
-
-        this._element = element;
-    }
-
-    update(model) {
-
-        this._element.innerHTML = this._template(model);
-    }
-
-    _template(model) {
+    template(model) {
 
         return `
             <table class="table table-bordered table-striped">

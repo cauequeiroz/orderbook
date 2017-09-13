@@ -1,9 +1,9 @@
 'use strict';
 
-System.register([], function (_export, _context) {
+System.register(['./View'], function (_export, _context) {
     "use strict";
 
-    var _createClass, MessageView;
+    var View, _createClass, MessageView;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -11,8 +11,34 @@ System.register([], function (_export, _context) {
         }
     }
 
+    function _possibleConstructorReturn(self, call) {
+        if (!self) {
+            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+        }
+
+        return call && (typeof call === "object" || typeof call === "function") ? call : self;
+    }
+
+    function _inherits(subClass, superClass) {
+        if (typeof superClass !== "function" && superClass !== null) {
+            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+        }
+
+        subClass.prototype = Object.create(superClass && superClass.prototype, {
+            constructor: {
+                value: subClass,
+                enumerable: false,
+                writable: true,
+                configurable: true
+            }
+        });
+        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+    }
+
     return {
-        setters: [],
+        setters: [function (_View2) {
+            View = _View2.View;
+        }],
         execute: function () {
             _createClass = function () {
                 function defineProperties(target, props) {
@@ -32,37 +58,41 @@ System.register([], function (_export, _context) {
                 };
             }();
 
-            _export('MessageView', MessageView = function () {
+            _export('MessageView', MessageView = function (_View) {
+                _inherits(MessageView, _View);
+
                 function MessageView(element) {
                     _classCallCheck(this, MessageView);
 
-                    this._element = element;
-                    this._timer = null;
+                    var _this = _possibleConstructorReturn(this, (MessageView.__proto__ || Object.getPrototypeOf(MessageView)).call(this, element));
+
+                    _this._timer = null;
+                    return _this;
                 }
 
                 _createClass(MessageView, [{
                     key: 'update',
                     value: function update(model) {
-                        var _this = this;
+                        var _this2 = this;
 
-                        this._element.innerHTML = this._template(model);
+                        this._element.innerHTML = this.template(model);
 
                         if (this._timer) clearTimeout(this._timer);
 
                         this._timer = setTimeout(function () {
-                            return _this._element.innerHTML = _this._template({ text: '' });
+                            return _this2._element.innerHTML = _this2.template({ text: '' });
                         }, 3000);
                     }
                 }, {
-                    key: '_template',
-                    value: function _template(model) {
+                    key: 'template',
+                    value: function template(model) {
 
                         return '\n            <div class="alert alert-light text-center" role="alert">\n                ' + (model.text ? model.text : '...') + '\n            </div>\n        ';
                     }
                 }]);
 
                 return MessageView;
-            }());
+            }(View));
 
             _export('MessageView', MessageView);
         }

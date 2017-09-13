@@ -1,23 +1,25 @@
-export class MessageView {
+import {View} from './View';
+
+export class MessageView extends View {
 
     constructor(element) {
 
-        this._element = element;
+        super(element)
         this._timer = null;
     }
 
     update(model) {
 
-        this._element.innerHTML = this._template(model);
+        this._element.innerHTML = this.template(model);
 
         if ( this._timer ) clearTimeout(this._timer);
 
         this._timer = setTimeout(() =>
-            this._element.innerHTML = this._template({text: ''})
+            this._element.innerHTML = this.template({text: ''})
         , 3000);
     }
 
-    _template(model) {
+    template(model) {
 
         return `
             <div class="alert alert-light text-center" role="alert">

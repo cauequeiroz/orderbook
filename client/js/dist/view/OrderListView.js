@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['../helper/DateHelper'], function (_export, _context) {
+System.register(['./View', '../helper/DateHelper'], function (_export, _context) {
     "use strict";
 
-    var DateHelper, _createClass, OrderListView;
+    var View, DateHelper, _createClass, OrderListView;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -11,8 +11,34 @@ System.register(['../helper/DateHelper'], function (_export, _context) {
         }
     }
 
+    function _possibleConstructorReturn(self, call) {
+        if (!self) {
+            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+        }
+
+        return call && (typeof call === "object" || typeof call === "function") ? call : self;
+    }
+
+    function _inherits(subClass, superClass) {
+        if (typeof superClass !== "function" && superClass !== null) {
+            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+        }
+
+        subClass.prototype = Object.create(superClass && superClass.prototype, {
+            constructor: {
+                value: subClass,
+                enumerable: false,
+                writable: true,
+                configurable: true
+            }
+        });
+        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+    }
+
     return {
-        setters: [function (_helperDateHelper) {
+        setters: [function (_View2) {
+            View = _View2.View;
+        }, function (_helperDateHelper) {
             DateHelper = _helperDateHelper.DateHelper;
         }],
         execute: function () {
@@ -34,22 +60,18 @@ System.register(['../helper/DateHelper'], function (_export, _context) {
                 };
             }();
 
-            _export('OrderListView', OrderListView = function () {
-                function OrderListView(element) {
+            _export('OrderListView', OrderListView = function (_View) {
+                _inherits(OrderListView, _View);
+
+                function OrderListView() {
                     _classCallCheck(this, OrderListView);
 
-                    this._element = element;
+                    return _possibleConstructorReturn(this, (OrderListView.__proto__ || Object.getPrototypeOf(OrderListView)).apply(this, arguments));
                 }
 
                 _createClass(OrderListView, [{
-                    key: 'update',
-                    value: function update(model) {
-
-                        this._element.innerHTML = this._template(model);
-                    }
-                }, {
-                    key: '_template',
-                    value: function _template(model) {
+                    key: 'template',
+                    value: function template(model) {
 
                         return '\n            <table class="table table-bordered table-striped">\n                <thead>\n                    <tr>\n                        <th>Date</th>\n                        <th>Amount</th>\n                        <th>Price</th>\n                        <th>Total</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    ' + model.list.map(function (order) {
                             return '\n                        <tr>\n                            <td>' + DateHelper.textFromDate(order.date) + '</td>\n                            <td>' + order.amount + '</td>\n                            <td>' + order.price + '</td>\n                            <td>' + order.total + '</td>\n                        </tr> \n                    ';
@@ -58,7 +80,7 @@ System.register(['../helper/DateHelper'], function (_export, _context) {
                 }]);
 
                 return OrderListView;
-            }());
+            }(View));
 
             _export('OrderListView', OrderListView);
         }
