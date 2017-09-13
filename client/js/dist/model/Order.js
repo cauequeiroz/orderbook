@@ -43,6 +43,11 @@ System.register([], function (_export, _context) {
                 }
 
                 _createClass(Order, [{
+                    key: "equals",
+                    value: function equals(other) {
+                        return JSON.stringify(this) == JSON.stringify(other);
+                    }
+                }, {
                     key: "date",
                     get: function get() {
 

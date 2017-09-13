@@ -28,4 +28,8 @@ export class Order {
         return this._amount * this._price;
     }
 
+    equals(other) {
+        return JSON.stringify(this) == JSON.stringify(other);
+    }
+
 }

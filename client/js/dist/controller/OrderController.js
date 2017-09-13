@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['../model/Order', '../model/OrderList', '../view/OrderListView.js', '../model/Message', '../view/MessageView', '../helper/DateHelper', '../helper/DataBind'], function (_export, _context) {
+System.register(['../model/Order', '../model/OrderList', '../view/OrderListView.js', '../service/OrderService', '../model/Message', '../view/MessageView', '../helper/DateHelper', '../helper/DataBind'], function (_export, _context) {
     "use strict";
 
-    var Order, OrderList, OrderListView, Message, MessageView, DateHelper, DataBind, _createClass, OrderController;
+    var Order, OrderList, OrderListView, OrderService, Message, MessageView, DateHelper, DataBind, _createClass, OrderController;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -18,6 +18,8 @@ System.register(['../model/Order', '../model/OrderList', '../view/OrderListView.
             OrderList = _modelOrderList.OrderList;
         }, function (_viewOrderListViewJs) {
             OrderListView = _viewOrderListViewJs.OrderListView;
+        }, function (_serviceOrderService) {
+            OrderService = _serviceOrderService.OrderService;
         }, function (_modelMessage) {
             Message = _modelMessage.Message;
         }, function (_viewMessageView) {
@@ -59,6 +61,8 @@ System.register(['../model/Order', '../model/OrderList', '../view/OrderListView.
                     this._orderList = new DataBind(new OrderList(), new OrderListView($('#orderListView')), 'add', 'delete');
 
                     this._message = new DataBind(new Message(), new MessageView($('#messageView')), 'text');
+
+                    this._service = new OrderService();
                 }
 
                 _createClass(OrderController, [{
@@ -71,6 +75,22 @@ System.register(['../model/Order', '../model/OrderList', '../view/OrderListView.
                         this._orderList.add(order);
                         this._message.text = 'Order added.';
                         this._clearForm();
+                    }
+                }, {
+                    key: 'import',
+                    value: function _import() {
+                        var _this = this;
+
+                        this._service.import(this._orderList.list).then(function (orders) {
+                            orders.forEach(function (order) {
+                                return _this._orderList.add(order);
+                            });
+                            _this._message.text = 'Orders imported.';
+                            _this._clearForm();
+                        }).catch(function (error) {
+                            console.log(error);
+                            _this._message.text = 'Cannot import orders.';
+                        });
                     }
                 }, {
                     key: 'delete',
