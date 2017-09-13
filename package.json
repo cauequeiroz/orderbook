@@ -4,20 +4,12 @@
   "description": "An order book application built with Javascript (ES6)",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node server/server.js",
-    "build": "babel js/src -d js/dist --source-maps",
-    "watch": "babel js/src -d js/dist --source-maps --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cauequeiroz/orderbook.git"
+    "start": "npm run build && node _server/server.js",
+    "build": "babel assets/js/src -d assets/js/dist --source-maps",
+    "watch": "babel assets/js/src -d assets/js/dist --source-maps --watch"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cauequeiroz/orderbook/issues"
-  },
-  "homepage": "https://github.com/cauequeiroz/orderbook#readme",
   "dependencies": {
     "systemjs": "^0.19.31",
     "babel-cli": "^6.26.0",

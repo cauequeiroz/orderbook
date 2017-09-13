@@ -36,9 +36,9 @@ export class OrderService {
     getWeekOrders() {
 
         return this._http
-            .get('negociacoes/semana')
+            .get('/orders/week')
             .then(orders => orders.map(order =>                
-                new Order(new Date(order.data), order.quantidade, order.valor)))
+                new Order(new Date(order.date), order.amount, order.price)))
             .catch(error => {
                 throw new Error(error);
             });
@@ -47,9 +47,9 @@ export class OrderService {
     getLastWeekOrders() {
 
         return this._http
-            .get('negociacoes/anterior')
+            .get('/orders/last-week')
             .then(orders => orders.map(order =>                
-                new Order(new Date(order.data), order.quantidade, order.valor)))
+                new Order(new Date(order.date), order.amount, order.price)))
             .catch(error => {
                 throw new Error(error);
             });
@@ -58,9 +58,9 @@ export class OrderService {
     getOrdersFromTwoWeeksAgo() {
 
         return this._http
-            .get('negociacoes/retrasada')
+            .get('/orders/two-weeks-ago')
             .then(orders => orders.map(order =>                
-                new Order(new Date(order.data), order.quantidade, order.valor)))
+                new Order(new Date(order.date), order.amount, order.price)))
             .catch(error => {
                 throw new Error(error);
             });

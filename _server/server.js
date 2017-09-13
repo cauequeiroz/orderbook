@@ -1,3 +1,5 @@
+/* Código simplório, apenas para fornecer o serviço para a aplicação */
+
 var http = require('http')
     ,app = require('./config/express');
 
