@@ -56,7 +56,7 @@ System.register(['../model/Order', '../model/OrderList', '../view/OrderListView.
                     this._controlsAmount = $('#order-amount');
                     this._controlsPrice = $('#order-price');
 
-                    this._orderList = new DataBind(new OrderList(), new OrderListView($('#orderListView')), 'add');
+                    this._orderList = new DataBind(new OrderList(), new OrderListView($('#orderListView')), 'add', 'delete');
 
                     this._message = new DataBind(new Message(), new MessageView($('#messageView')), 'text');
                 }
@@ -70,6 +70,14 @@ System.register(['../model/Order', '../model/OrderList', '../view/OrderListView.
 
                         this._orderList.add(order);
                         this._message.text = 'Order added.';
+                        this._clearForm();
+                    }
+                }, {
+                    key: 'delete',
+                    value: function _delete() {
+
+                        this._orderList.delete();
+                        this._message.text = 'Orders deleted.';
                         this._clearForm();
                     }
                 }, {

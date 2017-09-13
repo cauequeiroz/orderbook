@@ -46,6 +46,12 @@ System.register([], function (_export, _context) {
                         this._list.push(order);
                     }
                 }, {
+                    key: "delete",
+                    value: function _delete() {
+
+                        this._list = [];
+                    }
+                }, {
                     key: "list",
                     get: function get() {
 

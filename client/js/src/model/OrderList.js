@@ -19,4 +19,9 @@ export class OrderList {
 
         this._list.push(order);
     }
+
+    delete() {
+
+        this._list = [];
+    }
 }

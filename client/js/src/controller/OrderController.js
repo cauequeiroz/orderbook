@@ -19,7 +19,7 @@ export class OrderController {
         this._orderList = new DataBind(
             new OrderList(),
             new OrderListView($('#orderListView')),
-            'add');
+            'add', 'delete');
         
         this._message = new DataBind(
             new Message(),
@@ -34,6 +34,13 @@ export class OrderController {
 
         this._orderList.add(order);
         this._message.text = 'Order added.';
+        this._clearForm();
+    }
+
+    delete() {
+
+        this._orderList.delete();
+        this._message.text = 'Orders deleted.';
         this._clearForm();
     }
 
