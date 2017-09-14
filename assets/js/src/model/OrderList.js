@@ -24,4 +24,14 @@ export class OrderList {
 
         this._list = [];
     }
+
+    inverse() {
+
+        this._list.reverse();
+    }
+
+    arrange(criteria) {
+
+        this._list.sort(criteria);
+    }
 }

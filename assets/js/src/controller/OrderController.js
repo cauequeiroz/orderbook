@@ -7,7 +7,7 @@ import {MessageView} from '../view/MessageView';
 import {DateHelper} from '../helper/DateHelper';
 import {DataBind} from '../helper/DataBind';
 
-export class OrderController {
+class OrderController {
 
     constructor() {
 
@@ -20,7 +20,7 @@ export class OrderController {
         this._orderList = new DataBind(
             new OrderList(),
             new OrderListView($('#orderListView')),
-            'add', 'delete');
+            'add', 'delete', 'inverse', 'arrange');
         
         this._message = new DataBind(
             new Message(),
@@ -70,14 +70,20 @@ export class OrderController {
             .catch(error => this._message.text = error);        
     }
 
+    arrange(column) {
+
+        this._currentColumn == column
+            ? this._orderList.inverse()
+            : this._orderList.arrange((a, b) => a[column] - b[column]);
+        
+        this._currentColumn = column;
+    }
+
     _init() {
 
         this._service
             .load()
-            .then(orders => {
-                console.log(orders);
-                orders.forEach(order => this._orderList.add(order))
-            })
+            .then(orders => orders.forEach(order => this._orderList.add(order)))
             .catch(error => this._message.text = error);
     }
 
@@ -98,4 +104,10 @@ export class OrderController {
 
         this._controlsDate.focus();
     }
+}
+
+let controller = new OrderController();
+
+export function orderController() {
+    return controller;
 }

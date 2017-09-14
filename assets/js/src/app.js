@@ -1,8 +1,8 @@
-import {OrderController} from './controller/OrderController';
+import {orderController} from './controller/OrderController';
 
-let orderController = new OrderController();
+let controller = orderController();
 let $ = document.querySelector.bind(document);
 
-$('#app__controls').onsubmit = orderController.add.bind(orderController);
-$('#control-delete').onclick = orderController.delete.bind(orderController);
-$('#control-import').onclick = orderController.import.bind(orderController);
+$('#app__controls').onsubmit = controller.add.bind(controller);
+$('#control-delete').onclick = controller.delete.bind(controller);
+$('#control-import').onclick = controller.import.bind(controller);

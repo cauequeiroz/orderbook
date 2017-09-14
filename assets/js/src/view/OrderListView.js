@@ -1,7 +1,19 @@
 import {View} from './View';
 import {DateHelper} from '../helper/DateHelper';
+import {orderController} from '../controller/OrderController';
 
 export class OrderListView extends View {
+
+    constructor(element) {
+
+        super(element);
+
+        element.addEventListener('click', e => {
+            if ( e.target.nodeName == 'TH' ) {
+                orderController().arrange(e.target.textContent.toLowerCase());
+            }
+        });
+    }
 
     template(model) {
 
