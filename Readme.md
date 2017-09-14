@@ -9,6 +9,7 @@ Application created to get practice for the following studies topics:
 - ES6
 - MVC architecture 
 - Design patterns (Promises, Proxy, Factory, Module, DAO, ...)
+- IndexedDB
 - Babel and SystemJS
 - Fetch API
 
