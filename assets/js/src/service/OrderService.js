@@ -10,6 +10,31 @@ export class OrderService {
         this._http = new HttpService();
     }
 
+    add(order) {
+
+        return ConnectionFactory
+            .getConnection()
+            .then(connection => new OrderDao(connection))
+            .then(dao => dao.add(order))
+            .then(() => 'Order added.')
+            .catch(error => {
+                console.log(error);
+                throw new Error('Order cannot be added.');
+            });
+    }
+
+    delete() {
+
+        return ConnectionFactory
+            .getConnection()
+            .then(connection => new OrderDao(connection))
+            .then(dao => dao.delete())
+            .then(() => 'Orders deleted.')
+            .catch(error => {
+                throw new Error('Order cannot be deleted.');
+            });
+    }
+
     import(currentOrders) {
 
         return this.getAllOrders()                        
@@ -17,7 +42,7 @@ export class OrderService {
                 orders.filter(order =>
                     !currentOrders.some(current => order.equals(current))))
             .catch(error => {
-                throw new Error(error);
+                throw new Error('Orders cannot be imported.');
             });
     }
 

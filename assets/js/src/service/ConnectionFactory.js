@@ -1,5 +1,5 @@
 const dbName = 'orderbook';
-const version = 1;
+const version = 2;
 const stores = ['orders'];
 
 let connection = null;
@@ -22,7 +22,7 @@ export class ConnectionFactory {
 
                 if ( !connection ) {
                     connection = e.target.result;
-                    close = connection.close.bind(conenction);
+                    close = connection.close.bind(connection);
                     connection.close = function() {
                         throw new Error('Just ConnectionFactory can close a connection.');
                     }
@@ -55,7 +55,7 @@ export class ConnectionFactory {
             if ( connection.objectStoreNames.contains(store) )
                 connection.deleteObjectStore(store);
             
-            connection.createObjectStore(store);
+            connection.createObjectStore(store, { autoIncrement: true });
         });
     }
 }

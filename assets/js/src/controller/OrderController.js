@@ -33,11 +33,15 @@ export class OrderController {
     add(event) {
         
         event.preventDefault();
-        let order = this._createOrder();
 
-        this._orderList.add(order);
-        this._message.text = 'Order added.';
-        this._clearForm();
+        this._service
+            .add(this._createOrder())
+            .then(message => {
+                this._orderList.add(this._createOrder());
+                this._message.text = message;
+                this._clearForm();
+            })
+            .catch(error => this._message.text = error);
     }
 
     import() {
@@ -49,17 +53,19 @@ export class OrderController {
                 this._message.text = 'Orders imported.';
                 this._clearForm();
             })
-            .catch(error => {
-                console.log(error);
-                this._message.text = 'Cannot import orders.'
-            });
+            .catch(error => this._message.text = error);
     }
 
     delete() {
 
-        this._orderList.delete();
-        this._message.text = 'Orders deleted.';
-        this._clearForm();
+        this._service
+            .delete()
+            .then(message => {
+                this._orderList.delete();
+                this._message.text = message;
+                this._clearForm();
+            })
+            .catch(error => this._message.text = error);        
     }
 
     _createOrder() {
