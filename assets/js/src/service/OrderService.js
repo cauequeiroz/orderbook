@@ -1,4 +1,6 @@
 import {HttpService} from './HttpService';
+import {ConnectionFactory} from './ConnectionFactory';
+import {OrderDao} from '../dao/OrderDao';
 import {Order} from '../model/Order';
 
 export class OrderService {
