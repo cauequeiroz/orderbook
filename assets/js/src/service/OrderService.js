@@ -35,6 +35,17 @@ export class OrderService {
             });
     }
 
+    load() {
+
+        return ConnectionFactory
+            .getConnection()
+            .then(connection => new OrderDao(connection))
+            .then(dao => dao.load())
+            .catch(error => {
+                throw new Error('Orders cannot be loaded.');
+            });
+    }
+
     import(currentOrders) {
 
         return this.getAllOrders()                        

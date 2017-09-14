@@ -28,6 +28,8 @@ export class OrderController {
             'text');
         
         this._service = new OrderService();
+
+        this._init();
     }
 
     add(event) {
@@ -66,6 +68,17 @@ export class OrderController {
                 this._clearForm();
             })
             .catch(error => this._message.text = error);        
+    }
+
+    _init() {
+
+        this._service
+            .load()
+            .then(orders => {
+                console.log(orders);
+                orders.forEach(order => this._orderList.add(order))
+            })
+            .catch(error => this._message.text = error);
     }
 
     _createOrder() {
